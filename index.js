@@ -17,8 +17,7 @@ module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
 		spritePath: false,
 		styleOutput: false,
 		nameSpace: 'svg',
-		cssSeparator: '_',
-		spacing: 10
+		cssSeparator: '_'
 	}, config || {});
 
 	// Option `imagePath` is required
@@ -152,7 +151,6 @@ function formatSvg(dirPath, files) {
  */
 function saveSprite(svgs, opt) {
 	let sprite = new Sprite(svgs, {
-		spacing: opt.spacing,
 		fileName: opt.dirname + '.svg',
 		spritePath: path.resolve(__dirname, opt.spritePath)
 	});
