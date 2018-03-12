@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/**
+ * main.scss
+ * @author: Jostinsu
+ * @date: 2018-03-12
+ * @description: main css
+ *
+ */
+
+@svgsprite icon;
+
+.demo_stage {
+    width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.demo_title {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.demo_cnt {
+    padding-bottom: 40px;
+}
+
+.demo_sec {
+    margin-bottom: 40px;
+}
+
+.demo_sec_title {
+    font-size: 24px;
+    color: #666;
+    padding: 10px 0;
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 10px;
+}
+
+.demo_sec_list {
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.demo_sec_item {
+    float: left;
+    margin: 20px;
+    font-size: 0;
+}
+

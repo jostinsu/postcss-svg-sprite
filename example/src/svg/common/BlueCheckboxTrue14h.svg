@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>图标-通用/选择框/小复选框/已选+BlueCheckboxTrue14h</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标-通用/选择框/小复选框/已选+BlueCheckboxTrue14h">
+            <rect id="bg" fill="#328FFA" x="0" y="0" width="14" height="14" rx="2"></rect>
+            <polygon id="Icon/✓" fill="#FFFFFF" points="5.27815957 8.88955949 10.7602371 3 12 4.23735038 6.39801002 10.0681782 6.41812587 10.0893497 5.50990191 10.995806 5.50826757 10.9942661 5.50275869 11 5.30706183 10.804684 2 7.68867026 3.09693632 6.59386852"></polygon>
+        </g>
+    </g>
+</svg>

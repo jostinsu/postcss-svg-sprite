@@ -1,0 +1,165 @@
+@charset "UTF-8";
+/**
+ * main.scss
+ * @author: Jostinsu
+ * @date: 2018-03-12
+ * @description: main css
+ *
+ */
+
+.demo_icon {
+    background: url("../sprite/icon.svg") left top no-repeat;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: top;
+}
+
+.demo_icon_DownloadSmallGray {
+    width: 14px;
+    height: 14px;
+    background-position: -166px -24px;
+}
+
+.demo_icon_ExcelBlue14h {
+    width: 14px;
+    height: 14px;
+    background-position: 0 -120px;
+}
+
+.demo_icon_ExcelGreen14h {
+    width: 14px;
+    height: 14px;
+    background-position: -72px -120px;
+}
+
+.demo_icon_FailRed14h {
+    width: 14px;
+    height: 14px;
+    background-position: -140px -52px;
+}
+
+.demo_icon_FolderBlue40h {
+    width: 40px;
+    height: 40px;
+    background-position: -50px -70px;
+}
+
+.demo_icon_ImportSmallGray {
+    width: 14px;
+    height: 14px;
+    background-position: -140px -76px;
+}
+
+.demo_icon_LogoBlue24h {
+    width: 24px;
+    height: 24px;
+    background-position: -100px -70px;
+}
+
+.demo_icon_LogoGray60h {
+    width: 60px;
+    height: 60px;
+    background-position: -70px 0;
+}
+
+.demo_icon_MembersSmallGray {
+    width: 16px;
+    height: 12px;
+    background-position: 0 -144px;
+}
+
+.demo_icon_MoreSmallGray {
+    width: 16px;
+    height: 16px;
+    background-position: -140px -26px;
+}
+
+.demo_icon_PencilSmallGray {
+    width: 14px;
+    height: 14px;
+    background-position: -24px -120px;
+}
+
+.demo_icon_SearchSmallGray {
+    width: 14px;
+    height: 14px;
+    background-position: -48px -120px;
+}
+
+.demo_icon_SuccBlue16h {
+    width: 16px;
+    height: 16px;
+    background-position: -140px 0;
+}
+
+.demo_icon_SuccGreen14h {
+    width: 14px;
+    height: 14px;
+    background-position: -96px -120px;
+}
+
+.demo_icon_TrashSmallGray {
+    width: 14px;
+    height: 14px;
+    background-position: -120px -120px;
+}
+
+.demo_icon_WordBlue14h {
+    width: 14px;
+    height: 14px;
+    background-position: -166px 0;
+}
+
+.demo_icon_WordBlue40h {
+    width: 40px;
+    height: 40px;
+    background-position: 0 -70px;
+}
+
+.demo_icon_WordBlue60h {
+    width: 60px;
+    height: 60px;
+    background-position: 0 0;
+}
+
+.demo_stage {
+    width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.demo_title {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.demo_cnt {
+    padding-bottom: 40px;
+}
+
+.demo_sec {
+    margin-bottom: 40px;
+}
+
+.demo_sec_title {
+    font-size: 24px;
+    color: #666;
+    padding: 10px 0;
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 10px;
+}
+
+.demo_sec_list {
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.demo_sec_item {
+    float: left;
+    margin: 20px;
+    font-size: 0;
+}
+

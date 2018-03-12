@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/**
+ * common.scss
+ * @author: Jostinsu
+ * @date: 2018-03-12
+ * @description: common style
+ *
+ */
+
+html, body, div, p, h1, h2, h3, ul, li {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+li {
+    list-style: none;
+}
+
+@svgsprite common;
