@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>图标-通用/对勾/提示栏+SuccGreen14h</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="图标-通用/对勾/提示栏+SuccGreen14h">
+            <g id="通用图标/对勾/提示栏">
+                <circle id="bg" fill="#7ED321" cx="7" cy="7" r="7"></circle>
+                <polygon id="Icon/✓" fill="#FFFFFF" points="3.19091668 6.36300782 2 7.49169365 5.67801321 11 12 5.12868583 10.8090833 4 5.67801321 8.74262834"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
