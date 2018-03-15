@@ -73,7 +73,7 @@ function handle(atRule, options) {
 
 		let opt = _.clone(options);
 		opt.dirname = atRule.params;
-		let dirPath = path.resolve(__dirname, opt.imagePath, opt.dirname);
+		let dirPath = path.resolve(process.cwd(), opt.imagePath, opt.dirname);
 
 		fs.readdir(dirPath, (err, files) => {
 
@@ -152,7 +152,7 @@ function formatSvg(dirPath, files) {
 function saveSprite(svgs, opt) {
 	let sprite = new Sprite(svgs, {
 		fileName: opt.dirname + '.svg',
-		spritePath: path.resolve(__dirname, opt.spritePath)
+		spritePath: path.resolve(process.cwd(), opt.spritePath)
 	});
 	sprite.saveSprite();
 	return sprite;
@@ -166,7 +166,7 @@ function saveSprite(svgs, opt) {
  * @return {String} cssStr
  */
 function getCss(sprite, opt) {
-	let spritePath = path.resolve(__dirname, opt.spritePath, opt.dirname + '.svg');
+	let spritePath = path.resolve(process.cwd(), opt.spritePath, opt.dirname + '.svg');
 	let spriteRelative = path.relative(opt.styleOutput, spritePath);
 
 	return new CSS(sprite.shapes, {
