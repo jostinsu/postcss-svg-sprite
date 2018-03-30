@@ -21,4 +21,4 @@ li {
     list-style: none;
 }
 
-@svgsprite common;
+@svgsprite "common";

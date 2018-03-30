@@ -7,7 +7,7 @@
  *
  */
 
-@svgsprite icon;
+@svgsprite "icon";
 
 .demo_stage {
     width: 800px;

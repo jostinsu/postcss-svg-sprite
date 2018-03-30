@@ -8,15 +8,19 @@ gulp.task('sprite', function () {
 			imagePath: './example/src/svg',
 			spritePath: './example/dist/sprite',
 			styleOutput: './example/dist/css',
-			nameSpace: 'demo',
+			nameSpace: 'demo_',
 		})]))
 		.pipe(gulp.dest('./example/dist/css'));
 });
 
-gulp.task('watch', function () {
+gulp.task('watchCss', function () {
 	gulp.watch('./example/src/css/*.css', ['sprite']);
 });
 
-gulp.task('default', ['sprite', 'watch']);
+gulp.task('watchSvg', function () {
+    gulp.watch('./example/src/svg/**/*.svg', ['sprite']);
+});
+
+gulp.task('default', ['sprite', 'watchCss', 'watchSvg']);
 
 
