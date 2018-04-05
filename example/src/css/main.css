@@ -9,6 +9,8 @@
 
 @svgsprite "icon";
 
+@svgsprite "common";
+
 .demo_stage {
     width: 800px;
     margin: 0 auto;

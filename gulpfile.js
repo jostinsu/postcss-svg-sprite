@@ -14,11 +14,11 @@ gulp.task('sprite', function () {
 });
 
 gulp.task('watchCss', function () {
-	gulp.watch('./example/src/css/*.css', ['sprite']);
+	gulp.watch('example/src/css/*.css', ['sprite']);
 });
 
 gulp.task('watchSvg', function () {
-    gulp.watch('./example/src/svg/**/*.svg', ['sprite']);
+    gulp.watch('example/src/svg/*/*.svg', ['sprite']);
 });
 
 gulp.task('default', ['sprite', 'watchCss', 'watchSvg']);

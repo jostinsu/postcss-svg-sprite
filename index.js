@@ -1,10 +1,10 @@
 let path = require('path'),
     fs = require('fs'),
     mkdirp = require('mkdirp'),
-    File = require('vinyl'),
     _ = require('lodash'),
+    revHash = require('rev-hash'),
     postcss = require('postcss'),
-    SVGSprite = require('svg-sprite'),
+    DOMParser = require('xmldom').DOMParser,
     Sprite = require('./lib/sprite'),
     CSS = require('./lib/css');
 
@@ -40,6 +40,7 @@ module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
         return new Promise(function (reslove, reject) {
 
             let atRules = [];
+            let start = new Date().getTime(); //开始时间 test
 
             root.walkAtRules(ATRULEFLAG, atRule => {
                 atRules.push(atRule);
@@ -52,8 +53,12 @@ module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
                 results.forEach((result) => {
                     root.insertAfter(result.atRule, result.css);    // add css
                     result.atRule.remove();     // remove @svgsprite atrule
-                    saveSprite(result.sprite.path, result.sprite.name, result.sprite.content);  // write sprite file
+                    if (result.sprite) {
+                        saveSprite(result.sprite.path, result.sprite.name, result.sprite.content);  // write sprite file
+                    }
                 });
+                let end = new Date().getTime();//结束时间 test
+                console.log(root.source.input.file + " 构建SVG雪碧图所消耗时间：" + (end - start) + "ms");
                 reslove();
             }).catch(err => {
                 reject(err);
@@ -76,7 +81,7 @@ function handle(atRule, options) {
         let opt = _.clone(options),
             param = _formatAtRuleParams(atRule.params),
             dirPath = '',
-            files = [];
+            svgs = [];
 
         if (param !== '') {
             opt.dirname = param;
@@ -92,15 +97,15 @@ function handle(atRule, options) {
             }
 
             if (!sourceFiles.length) {
-                console.log('There si no file in' + dirPath);
+                console.log('There is no file in' + dirPath);
             } else {
-                files = sourceFiles.filter(file => { // Filtering and leaving the svg file only
+                svgs = sourceFiles.filter(file => {    // Filtering and leaving the svg file only
                     return _isSvgFile(file, dirPath);
                 });
             }
 
-            return Promise.all(files.map(function (file) {
-                let svgPath = path.resolve(dirPath, file);
+            return Promise.all(svgs.map(function (svg) {
+                let svgPath = path.resolve(dirPath, svg);
                 return new Promise((resolve, reject) => {
                     fs.readFile(svgPath, (err, content) => {
                         if (err) {
@@ -108,30 +113,31 @@ function handle(atRule, options) {
                         }
                         resolve({
                             path: svgPath,
-                            content: content
+                            content: content,
+                            hash: revHash(content)
                         });
                     });
                 });
-            })).then(files => {
-                if (!files.length) {
-                    console.log('There si no svg file in' + dirPath);
+            })).then(svgs => {
+                if (!svgs.length) {
+                    console.log('There is no svg file in' + dirPath);
+                    resolve({
+                        atRule: atRule,
+                        css: '',
+                        sprite: null
+                    });
                 } else {
-                    formatSvg(dirPath, files).then(svgs => {
-                        let sprite = new Sprite(svgs),
-                            spriteFile = sprite.getSprite(),
-                            css = getCss(sprite, opt);
+                    let sprite = new Sprite(svgs, opt),
+                        css = getCss(sprite.shapes, opt);
 
-                        resolve({
-                            atRule: atRule,
-                            css: css,
-                            sprite: {
-                                content: spriteFile,
-                                name: opt.dirname + '.svg',
-                                path: path.resolve(process.cwd(), opt.spritePath)
-                            },
-                        });
-                    }).catch((err) => {
-                        console.log(err);
+                    resolve({
+                        atRule: atRule,
+                        css: css,
+                        sprite: {
+                            content: sprite.sprite,
+                            name: opt.dirname + '.svg',
+                            path: path.resolve(process.cwd(), opt.spritePath)
+                        },
                     });
                 }
             }).catch(err => {
@@ -143,53 +149,20 @@ function handle(atRule, options) {
 }
 
 /**
- * Use svg-sprite plugin to format source files of svg
- *
- * @param  {String}  dirPath
- * @param  {Object} files
- * @return {Promise}
- */
-function formatSvg(dirPath, files) {
-
-    let svgSprite = new SVGSprite({
-        svg: {
-            doctypeDeclaration: false,
-            xmlDeclaration: false
-        }
-    });
-    files.forEach(file => {
-        svgSprite.add(new File({
-            path: file.path,
-            base: dirPath,
-            contents: file.content
-        }));
-    });
-
-    return new Promise((resolve, reject) => {
-        svgSprite.getShapes('', (err, result) => {
-            if (err) {
-                reject(err);
-            }
-            resolve(result);
-        });
-    });
-}
-
-/**
  * Get css code which corresponding to svg sprite
  *
- * @param  {Object} sprite
- * @param  {Object} option
+ * @param  {Object} shapes
+ * @param  {Object} options
  * @return {String} cssStr
  */
-function getCss(sprite, option) {
-    let spritePath = path.resolve(process.cwd(), option.spritePath, option.dirname + '.svg');
-    let spriteRelative = path.relative(option.styleOutput, spritePath);
+function getCss(shapes, options) {
+    let spritePath = path.resolve(process.cwd(), options.spritePath, options.dirname + '.svg');
+    let spriteRelative = path.relative(options.styleOutput, spritePath);
 
-    return new CSS(sprite.shapes, {
-        nameSpace: option.nameSpace,
-        block: option.dirname,
-        separator: option.cssSeparator,
+    return new CSS(shapes, {
+        nameSpace: options.nameSpace,
+        block: options.dirname,
+        separator: options.cssSeparator,
         spriteRelative: spriteRelative
     }).getCss();
 }
@@ -203,12 +176,12 @@ function getCss(sprite, option) {
  */
 function saveSprite(spritePath, spriteName, spriteContent) {
     mkdirp.sync(spritePath);
-    fs.writeFile(path.resolve(spritePath, spriteName), new Buffer(spriteContent), (err) => {
-        if (err) {
-            throw err;
-        }
+    try {
+        fs.writeFileSync(path.resolve(spritePath, spriteName), new Buffer(spriteContent));
         console.log(path.resolve(spritePath, spriteName) + " had been constructed!")
-    });
+    } catch (err) {
+        throw err;
+    }
 }
 
 /**

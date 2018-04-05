@@ -33,77 +33,65 @@ li {
 .demo_common_AddMemberSmallGray {
     width: 14px;
     height: 14px;
-    background-position: -74px -26px;
+    background-position: -50px -50px;
 }
 
 .demo_common_ArrowGrayDown6h {
     width: 10px;
     height: 6px;
-    background-position: -44px -30px;
+    background-position: -20px -76px;
 }
 
 .demo_common_ArrowGrayRight13h {
     width: 8px;
     height: 13px;
-    background-position: -48px -76px;
+    background-position: -74px -50px;
 }
 
 .demo_common_ArrowGrayUp6h {
     width: 10px;
     height: 6px;
-    background-position: -66px -76px;
+    background-position: -0px -76px;
 }
 
 .demo_common_ArrowLeftGray16h {
     width: 16px;
     height: 16px;
-    background-position: 0 -50px;
+    background-position: -0px -50px;
 }
 
 .demo_common_BellBigGray {
     width: 34px;
     height: 40px;
-    background-position: 0 0;
+    background-position: -0px -0px;
 }
 
 .demo_common_BlueCheckboxHalf14h {
     width: 14px;
     height: 14px;
-    background-position: -24px -76px;
+    background-position: -70px -26px;
 }
 
 .demo_common_BlueCheckboxTrue14h {
     width: 14px;
     height: 14px;
-    background-position: -76px -50px;
+    background-position: -44px -26px;
 }
 
 .demo_common_CheckboxFalse14h {
     width: 14px;
     height: 14px;
-    background-position: 0 -76px;
+    background-position: -26px -50px;
 }
 
 .demo_common_CloseGray16h {
     width: 16px;
     height: 16px;
-    background-position: -26px -50px;
-}
-
-.demo_common_CloseGray20h {
-    width: 20px;
-    height: 20px;
-    background-position: -44px 0;
-}
-
-.demo_common_CloseGrayFill14h {
-    width: 14px;
-    height: 14px;
-    background-position: -52px -50px;
+    background-position: -70px -0px;
 }
 
 .demo_common_CrossSmallWhite {
     width: 16px;
     height: 16px;
-    background-position: -74px 0;
+    background-position: -44px -0px;
 }

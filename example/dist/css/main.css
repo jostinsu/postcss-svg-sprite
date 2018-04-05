@@ -124,6 +124,81 @@
     background-position: 0 0;
 }
 
+.demo_common {
+    background: url("../sprite/common.svg") left top no-repeat;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: top;
+}
+
+.demo_common_AddMemberSmallGray {
+    width: 14px;
+    height: 14px;
+    background-position: -50px -50px;
+}
+
+.demo_common_ArrowGrayDown6h {
+    width: 10px;
+    height: 6px;
+    background-position: -20px -76px;
+}
+
+.demo_common_ArrowGrayRight13h {
+    width: 8px;
+    height: 13px;
+    background-position: -74px -50px;
+}
+
+.demo_common_ArrowGrayUp6h {
+    width: 10px;
+    height: 6px;
+    background-position: 0 -76px;
+}
+
+.demo_common_ArrowLeftGray16h {
+    width: 16px;
+    height: 16px;
+    background-position: 0 -50px;
+}
+
+.demo_common_BellBigGray {
+    width: 34px;
+    height: 40px;
+    background-position: 0 0;
+}
+
+.demo_common_BlueCheckboxHalf14h {
+    width: 14px;
+    height: 14px;
+    background-position: -70px -26px;
+}
+
+.demo_common_BlueCheckboxTrue14h {
+    width: 14px;
+    height: 14px;
+    background-position: -44px -26px;
+}
+
+.demo_common_CheckboxFalse14h {
+    width: 14px;
+    height: 14px;
+    background-position: -26px -50px;
+}
+
+.demo_common_CloseGray16h {
+    width: 16px;
+    height: 16px;
+    background-position: -70px 0;
+}
+
+.demo_common_CrossSmallWhite {
+    width: 16px;
+    height: 16px;
+    background-position: -44px 0;
+}
+
 .demo_stage {
     width: 800px;
     margin: 0 auto;
