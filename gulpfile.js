@@ -6,7 +6,7 @@ gulp.task('sprite', function () {
 	return gulp.src('./example/src/css/*.css')
 		.pipe(postcss([svgSprite({
 			imagePath: './example/src/svg',
-			spritePath: './example/dist/sprite',
+            spriteOutput: './example/dist/sprite',
 			styleOutput: './example/dist/css',
 			nameSpace: 'demo_',
 		})]))

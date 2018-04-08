@@ -30,68 +30,80 @@ li {
     vertical-align: top;
 }
 
-.demo_common_AddMemberSmallGray {
-    width: 14px;
-    height: 14px;
-    background-position: -50px -50px;
+.demo_common_At {
+    width: 32px;
+    height: 32px;
+    background-position: -42px -0px;
 }
 
-.demo_common_ArrowGrayDown6h {
-    width: 10px;
-    height: 6px;
-    background-position: -20px -76px;
+.demo_common_Camera {
+    width: 32px;
+    height: 32px;
+    background-position: -0px -84px;
 }
 
-.demo_common_ArrowGrayRight13h {
-    width: 8px;
-    height: 13px;
-    background-position: -74px -50px;
+.demo_common_Chat {
+    width: 32px;
+    height: 32px;
+    background-position: -0px -42px;
 }
 
-.demo_common_ArrowGrayUp6h {
-    width: 10px;
-    height: 6px;
-    background-position: -0px -76px;
+.demo_common_Check {
+    width: 32px;
+    height: 32px;
+    background-position: -42px -42px;
 }
 
-.demo_common_ArrowLeftGray16h {
-    width: 16px;
-    height: 16px;
-    background-position: -0px -50px;
+.demo_common_Close {
+    width: 32px;
+    height: 32px;
+    background-position: -84px -0px;
 }
 
-.demo_common_BellBigGray {
-    width: 34px;
-    height: 40px;
+.demo_common_Comment {
+    width: 32px;
+    height: 32px;
+    background-position: -84px -42px;
+}
+
+.demo_common_DownArrow {
+    width: 32px;
+    height: 32px;
     background-position: -0px -0px;
 }
 
-.demo_common_BlueCheckboxHalf14h {
-    width: 14px;
-    height: 14px;
-    background-position: -70px -26px;
+.demo_common_Download {
+    width: 32px;
+    height: 32px;
+    background-position: -42px -84px;
 }
 
-.demo_common_BlueCheckboxTrue14h {
-    width: 14px;
-    height: 14px;
-    background-position: -44px -26px;
+.demo_common_Filter {
+    width: 32px;
+    height: 32px;
+    background-position: -84px -84px;
 }
 
-.demo_common_CheckboxFalse14h {
-    width: 14px;
-    height: 14px;
-    background-position: -26px -50px;
+.demo_common_Good {
+    width: 32px;
+    height: 32px;
+    background-position: -126px -0px;
 }
 
-.demo_common_CloseGray16h {
-    width: 16px;
-    height: 16px;
-    background-position: -70px -0px;
+.demo_common_Group {
+    width: 32px;
+    height: 32px;
+    background-position: -126px -42px;
 }
 
-.demo_common_CrossSmallWhite {
-    width: 16px;
-    height: 16px;
-    background-position: -44px -0px;
+.demo_common_History {
+    width: 32px;
+    height: 32px;
+    background-position: -126px -84px;
+}
+
+.demo_common_Info {
+    width: 32px;
+    height: 32px;
+    background-position: -0px -126px;
 }
