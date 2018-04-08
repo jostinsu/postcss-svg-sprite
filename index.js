@@ -205,7 +205,7 @@ function _formatAtRuleParams(value) {
     if (/^"(.*)"$/.test(value) || /^'(.*)'$/.test(value)) {
         return value.slice(1, value.length - 1);
     }
-    return '';
+    return value;
 }
 
 /**
