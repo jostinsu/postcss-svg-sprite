@@ -54,9 +54,9 @@ gulp.task('sprite', function () {
 	return gulp.src('./example/src/css/*.css')
 		.pipe(postcss([svgSprite({
 			imagePath: './example/src/svg',
-			spritePath: './example/dist/sprite',
+			spriteOutput: './example/dist/sprite',
 			styleOutput: './example/dist/css',
-			nameSpace: 'demo',
+			nameSpace: 'demo_',
 		})]))
 		.pipe(gulp.dest('./example/dist/css'));
 });
@@ -69,7 +69,7 @@ gulp.task('sprite', function () {
 #### styleOutput:
 > Relative path to the folder that will keep your output stylesheet(s).
 
-#### spritePath:
+#### spriteOutput:
 > Relative path to the folder that will keep your output sprite(s).
 
 #### nameSpace:
