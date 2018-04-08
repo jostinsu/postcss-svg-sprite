@@ -1,6 +1,6 @@
 {
   "name": "postcss-svg-sprite",
-  "version": "0.0.1-beta",
+  "version": "0.0.2-beta",
   "description": "PostCSS plugin to construct SVG sprite",
   "keywords": [
     "postcss",
