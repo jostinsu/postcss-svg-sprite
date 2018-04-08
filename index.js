@@ -39,7 +39,7 @@ module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
         return new Promise(function (reslove, reject) {
 
             let atRules = [];
-            let start = new Date().getTime(); //开始时间 test
+            // let start = new Date().getTime(); //开始时间 test
 
             root.walkAtRules(ATRULEFLAG, atRule => {
                 atRules.push(atRule);
@@ -56,8 +56,8 @@ module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
                         saveSprite(result.sprite.spritePath, result.sprite.contents);  // write sprite file
                     }
                 });
-                let end = new Date().getTime();//结束时间 test
-                console.log(root.source.input.file + " 构建SVG雪碧图所消耗时间：" + (end - start) + "ms");
+                // let end = new Date().getTime();//结束时间 test
+                // console.log(root.source.input.file + " 构建SVG雪碧图所消耗时间：" + (end - start) + "ms");
                 reslove();
             }).catch(err => {
                 reject(err);
@@ -131,7 +131,7 @@ function handle(atRule, options) {
                         spritePath: opt.spritePath,
                         svgDir: opt.svgDir
                     });
-                    if (sprite.isSvgsHaveChanged()) {
+                    if (sprite.isSvgsChange()) {
                         sprite.getShapesFromSvgs().then(() => {
                             let spriteContent = sprite.getSprite();
                             resolve({
