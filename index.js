@@ -3,11 +3,16 @@ let path = require('path'),
     mkdirp = require('mkdirp'),
     _ = require('lodash'),
     revHash = require('rev-hash'),
+    colors = require('ansi-colors'),
+    fancyLog = require('fancy-log'),
+    PluginError = require('plugin-error'),
     postcss = require('postcss'),
     Sprite = require('./lib/sprite'),
     CSS = require('./lib/css');
 
 const ATRULEFLAG = 'svgsprite';
+const PLUGINNAME = 'postcss-svg-sprite';
+
 
 module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
 
@@ -19,19 +24,21 @@ module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
         cssSeparator: '_'
     }, config || {});
 
+
     // Option `imagePath` is required
     if (!config.imagePath) {
-        throw new Error('Option `imagePath` is undefined, Please set it and restart.');
+        // throw new Error('Option `imagePath` is undefined, Please set it and restart.');
+        throw log('Option `imagePath` is undefined, Please set it and restart.', 'error');
     }
 
     // Option `spriteOutput` is required
     if (!config.spriteOutput) {
-        throw new Error('Option `spriteOutput` is undefined, Please set it and restart.');
+        throw log('Option `spriteOutput` is undefined, Please set it and restart.', 'error');
     }
 
     // Option `styleOutput` is required
     if (!config.styleOutput) {
-        throw new Error('Option `styleOutput` is undefined, Please set it and restart.');
+        throw log('Option `styleOutput` is undefined, Please set it and restart.', 'error');
     }
 
     return function (root) {
@@ -39,7 +46,6 @@ module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
         return new Promise(function (reslove, reject) {
 
             let atRules = [];
-            // let start = new Date().getTime(); //开始时间 test
 
             root.walkAtRules(ATRULEFLAG, atRule => {
                 atRules.push(atRule);
@@ -51,16 +57,15 @@ module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
             })).then((results) => {
                 results.forEach((result) => {
                     root.insertAfter(result.atRule, result.css);    // add css
-                    result.atRule.remove();     // remove @svgsprite atrule
+                    result.atRule.remove();     // remove @svgsprite atRule
                     if (result.sprite) {
                         saveSprite(result.sprite.spritePath, result.sprite.contents);  // write sprite file
                     }
                 });
-                // let end = new Date().getTime();//结束时间 test
-                // console.log(root.source.input.file + " 构建SVG雪碧图所消耗时间：" + (end - start) + "ms");
                 reslove();
             }).catch(err => {
                 reject(err);
+                throw new PluginError(PLUGINNAME, err);
             });
         });
     };
@@ -87,22 +92,23 @@ function handle(atRule, options) {
             opt.spriteOutput = path.resolve(process.cwd(), opt.spriteOutput);
             opt.spritePath = path.resolve(opt.spriteOutput, opt.dirname + '.svg');
         } else {
-            return console.log('The parameter of @svgsprite can not be empty');
+            log('The parameter of @svgsprite can not be empty!', 'warn');
+            return resolve({
+                atRule: atRule,
+                css: '',
+                sprite: null
+            });
         }
 
         fs.readdir(opt.svgDir, (err, sourceFiles) => {
 
             if (err) {
-                throw err // TODO 找不到该图片
+                return reject(err);
             }
 
-            if (!sourceFiles.length) {
-                console.log('There is no file in' + opt.svgDir);
-            } else {
-                svgs = sourceFiles.filter(file => {    // Filtering and leaving the svg file only
-                    return _isSvgFile(file, opt.svgDir);
-                });
-            }
+            svgs = sourceFiles.filter(file => {    // Filtering and leaving the svg file only
+                return _isSvgFile(file, opt.svgDir);
+            });
 
             return Promise.all(svgs.map(function (svg) {
                 let svgPath = path.resolve(opt.svgDir, svg);
@@ -119,8 +125,8 @@ function handle(atRule, options) {
                     });
                 });
             })).then(svgs => {
-                if (!svgs.length) {
-                    console.log('There is no svg file in' + opt.svgDir);
+                if (!svgs.length) { // no svg file
+                    log(`There is no svg file in ${opt.svgDir}`, 'warn');
                     resolve({
                         atRule: atRule,
                         css: '',
@@ -131,21 +137,20 @@ function handle(atRule, options) {
                         spritePath: opt.spritePath,
                         svgDir: opt.svgDir
                     });
-                    if (sprite.isSvgsChange()) {
-                        sprite.getShapesFromSvgs().then(() => {
-                            let spriteContent = sprite.getSprite();
+                    if (sprite.isSvgsChange()) {    // svg files change
+                        sprite.getShapesFromSvgs().then((shapes) => {
                             resolve({
                                 atRule: atRule,
-                                css: getCss(sprite.shapes, opt),
+                                css: getCss(shapes, opt),
                                 sprite: {
-                                    contents: spriteContent,
+                                    contents: sprite.getSprite(),
                                     spritePath: opt.spritePath,
                                 },
                             });
                         }).catch(err => {
-                            throw err;
+                            reject(err);
                         });
-                    } else {
+                    } else {    // svg files do not change
                         let shapes = sprite.getShapesFromSprite();
                         resolve({
                             atRule: atRule,
@@ -155,7 +160,7 @@ function handle(atRule, options) {
                     }
                 }
             }).catch(err => {
-                console.log(err);
+                reject(err);
             });
 
         });
@@ -180,7 +185,7 @@ function getCss(shapes, options) {
 }
 
 /**
- * save sprite which was constructed by svg files
+ * save sprite
  *
  * @param  {String} spritePath
  * @param  {String} spriteContents
@@ -189,14 +194,14 @@ function saveSprite(spritePath, spriteContents) {
     mkdirp.sync(path.dirname(spritePath));
     try {
         fs.writeFileSync(spritePath, new Buffer(spriteContents));
-        console.log(spritePath + " had been constructed!")
+        fancyLog(`${PLUGINNAME}: ${colors.green(`had generated ${spritePath}`)}`);
     } catch (err) {
-        throw err;
+        throw new PluginError(PLUGINNAME, err);
     }
 }
 
 /**
- *  Format the parameter of @svgsprite;
+ * Format the parameter of @svgsprite;
  *
  * @param  {String} value
  * @return {String}
@@ -225,4 +230,32 @@ function _isSvgFile(file, dirPath) {
         }
     }
     return flag;
+}
+
+
+/**
+ * Format log based on different types
+ *
+ * @param  {String} msg
+ * @param  {String} type
+ */
+function log(msg, type) {
+    switch (type) {
+        case 'error':
+            fancyLog(`${PLUGINNAME}: ${colors.red(`Error, ${msg}`)}`);
+            break;
+
+        case 'warn':
+            fancyLog(`${PLUGINNAME}: ${colors.yellow(`Warning, ${msg}`)}`);
+            break;
+
+        case 'info':
+            fancyLog(`${PLUGINNAME}: ${colors.green(`Info, ${msg}`)}`);
+            break;
+
+        default:
+            fancyLog(`${PLUGINNAME}: ${colors.green(`Info, ${msg}`)}`);
+            break;
+    }
+
 }

@@ -16,226 +16,118 @@
     vertical-align: top;
 }
 
-.demo_icon_DownloadSmallGray {
-    width: 14px;
-    height: 14px;
-    background-position: -210px -204px;
-}
-
-.demo_icon_ExcelBlue14h {
-    width: 14px;
-    height: 14px;
-    background-position: -90px -204px;
-}
-
-.demo_icon_ExcelGreen14h {
-    width: 14px;
-    height: 14px;
-    background-position: -66px -204px;
-}
-
-.demo_icon_FailRed14h {
-    width: 14px;
-    height: 14px;
-    background-position: -186px -204px;
-}
-
-.demo_icon_FolderBlue40h {
-    width: 40px;
-    height: 40px;
-    background-position: -50px -70px;
-}
-
-.demo_icon_ImportSmallGray {
-    width: 14px;
-    height: 14px;
-    background-position: -138px -204px;
-}
-
 .demo_icon_LeftArrow {
     width: 32px;
     height: 32px;
-    background-position: -0px -120px;
+    background-position: -42px -0px;
 }
 
 .demo_icon_Link {
     width: 32px;
     height: 32px;
-    background-position: -42px -120px;
-}
-
-.demo_icon_LogoBlue24h {
-    width: 24px;
-    height: 24px;
-    background-position: -224px -168px;
-}
-
-.demo_icon_LogoGray60h {
-    width: 60px;
-    height: 60px;
-    background-position: -70px -0px;
+    background-position: -126px -0px;
 }
 
 .demo_icon_Mail {
     width: 32px;
     height: 32px;
-    background-position: -182px -0px;
-}
-
-.demo_icon_MembersSmallGray {
-    width: 16px;
-    height: 12px;
-    background-position: -234px -204px;
+    background-position: -0px -42px;
 }
 
 .demo_icon_More {
     width: 32px;
     height: 32px;
-    background-position: -182px -84px;
-}
-
-.demo_icon_MoreSmallGray {
-    width: 16px;
-    height: 16px;
-    background-position: -140px -84px;
+    background-position: -42px -42px;
 }
 
 .demo_icon_Notice {
     width: 32px;
     height: 32px;
-    background-position: -42px -162px;
-}
-
-.demo_icon_PencilSmallGray {
-    width: 14px;
-    height: 14px;
-    background-position: -100px -94px;
+    background-position: -84px -0px;
 }
 
 .demo_icon_Pic {
     width: 32px;
     height: 32px;
-    background-position: -126px -162px;
+    background-position: -84px -42px;
 }
 
 .demo_icon_Plus {
     width: 32px;
     height: 32px;
-    background-position: -168px -162px;
+    background-position: -0px -84px;
 }
 
 .demo_icon_QRCode {
     width: 32px;
     height: 32px;
-    background-position: -140px -0px;
+    background-position: -42px -84px;
 }
 
 .demo_icon_Radio {
     width: 32px;
     height: 32px;
-    background-position: -224px -42px;
+    background-position: -84px -84px;
 }
 
 .demo_icon_RightArrow {
     width: 32px;
     height: 32px;
-    background-position: -224px -84px;
+    background-position: -0px -0px;
 }
 
 .demo_icon_Search {
     width: 32px;
     height: 32px;
-    background-position: -224px -126px;
-}
-
-.demo_icon_SearchSmallGray {
-    width: 14px;
-    height: 14px;
-    background-position: -42px -204px;
+    background-position: -126px -42px;
 }
 
 .demo_icon_Setting {
     width: 32px;
     height: 32px;
-    background-position: -0px -204px;
+    background-position: -126px -84px;
 }
 
 .demo_icon_Share {
     width: 32px;
     height: 32px;
-    background-position: -224px -0px;
-}
-
-.demo_icon_SuccBlue16h {
-    width: 16px;
-    height: 16px;
-    background-position: -182px -126px;
-}
-
-.demo_icon_SuccGreen14h {
-    width: 14px;
-    height: 14px;
-    background-position: -114px -204px;
+    background-position: -0px -126px;
 }
 
 .demo_icon_Tag {
     width: 32px;
     height: 32px;
-    background-position: -84px -162px;
+    background-position: -42px -126px;
 }
 
 .demo_icon_Top {
     width: 32px;
     height: 32px;
-    background-position: -0px -162px;
+    background-position: -84px -126px;
 }
 
 .demo_icon_TopArrow {
     width: 32px;
     height: 32px;
-    background-position: -182px -42px;
-}
-
-.demo_icon_TrashSmallGray {
-    width: 14px;
-    height: 14px;
-    background-position: -100px -70px;
+    background-position: -126px -126px;
 }
 
 .demo_icon_Voice {
     width: 32px;
     height: 32px;
-    background-position: -84px -120px;
-}
-
-.demo_icon_Wallet {
-    width: 32px;
-    height: 32px;
-    background-position: -140px -42px;
-}
-
-.demo_icon_WordBlue14h {
-    width: 14px;
-    height: 14px;
-    background-position: -162px -204px;
-}
-
-.demo_icon_WordBlue40h {
-    width: 40px;
-    height: 40px;
-    background-position: -0px -70px;
-}
-
-.demo_icon_WordBlue60h {
-    width: 60px;
-    height: 60px;
-    background-position: -0px -0px;
+    background-position: -168px -0px;
 }
 
 .demo_icon_video {
     width: 32px;
     height: 32px;
-    background-position: -126px -120px;
+    background-position: -168px -42px;
+}
+
+.demo_icon_Wallet {
+    width: 32px;
+    height: 32px;
+    background-position: -168px -84px;
 }
 
 .demo_common {
