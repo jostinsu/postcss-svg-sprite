@@ -19,19 +19,19 @@
 .demo_icon_LeftArrow {
     width: 32px;
     height: 32px;
-    background-position: -42px -0px;
+    background-position: -42px 0;
 }
 
 .demo_icon_Link {
     width: 32px;
     height: 32px;
-    background-position: -126px -0px;
+    background-position: -126px 0;
 }
 
 .demo_icon_Mail {
     width: 32px;
     height: 32px;
-    background-position: -0px -42px;
+    background-position: 0 -42px;
 }
 
 .demo_icon_More {
@@ -43,7 +43,7 @@
 .demo_icon_Notice {
     width: 32px;
     height: 32px;
-    background-position: -84px -0px;
+    background-position: -84px 0;
 }
 
 .demo_icon_Pic {
@@ -55,7 +55,7 @@
 .demo_icon_Plus {
     width: 32px;
     height: 32px;
-    background-position: -0px -84px;
+    background-position: 0 -84px;
 }
 
 .demo_icon_QRCode {
@@ -73,7 +73,7 @@
 .demo_icon_RightArrow {
     width: 32px;
     height: 32px;
-    background-position: -0px -0px;
+    background-position: 0 0;
 }
 
 .demo_icon_Search {
@@ -91,7 +91,7 @@
 .demo_icon_Share {
     width: 32px;
     height: 32px;
-    background-position: -0px -126px;
+    background-position: 0 -126px;
 }
 
 .demo_icon_Tag {
@@ -115,16 +115,16 @@
 .demo_icon_Voice {
     width: 32px;
     height: 32px;
-    background-position: -168px -0px;
+    background-position: -168px 0;
 }
 
-.demo_icon_video {
+.demo_icon_Wallet {
     width: 32px;
     height: 32px;
     background-position: -168px -42px;
 }
 
-.demo_icon_Wallet {
+.demo_icon_video {
     width: 32px;
     height: 32px;
     background-position: -168px -84px;
@@ -142,19 +142,19 @@
 .demo_common_At {
     width: 32px;
     height: 32px;
-    background-position: -42px -0px;
+    background-position: -42px 0;
 }
 
 .demo_common_Camera {
     width: 32px;
     height: 32px;
-    background-position: -0px -84px;
+    background-position: 0 -84px;
 }
 
 .demo_common_Chat {
     width: 32px;
     height: 32px;
-    background-position: -0px -42px;
+    background-position: 0 -42px;
 }
 
 .demo_common_Check {
@@ -166,7 +166,7 @@
 .demo_common_Close {
     width: 32px;
     height: 32px;
-    background-position: -84px -0px;
+    background-position: -84px 0;
 }
 
 .demo_common_Comment {
@@ -178,7 +178,7 @@
 .demo_common_DownArrow {
     width: 32px;
     height: 32px;
-    background-position: -0px -0px;
+    background-position: 0 0;
 }
 
 .demo_common_Download {
@@ -196,7 +196,7 @@
 .demo_common_Good {
     width: 32px;
     height: 32px;
-    background-position: -126px -0px;
+    background-position: -126px 0;
 }
 
 .demo_common_Group {
@@ -214,7 +214,7 @@
 .demo_common_Info {
     width: 32px;
     height: 32px;
-    background-position: -0px -126px;
+    background-position: 0 -126px;
 }
 
 .demo_stage {
