@@ -180,7 +180,7 @@ function getCss(shapes, options) {
         nameSpace: options.nameSpace,
         block: options.dirname,
         separator: options.cssSeparator,
-        spriteRelative: spriteRelative
+        spriteRelative: path.normalize(spriteRelative).replace(/\\/g, '/')
     }).getCss();
 }
 
