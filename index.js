@@ -2,7 +2,7 @@ let path = require('path'),
 	fs = require('fs'),
 	mkdirp = require('mkdirp'),
 	_ = require('lodash'),
-	revHash = require('rev-hash'),
+	crypto = require('crypto'),
 	colors = require('ansi-colors'),
 	fancyLog = require('fancy-log'),
 	PluginError = require('plugin-error'),
@@ -120,7 +120,7 @@ function handle(atRule, options) {
 						resolve({
 							path: svgPath,
 							contents: contents,
-							id: revHash(contents)
+							id: crypto.createHash('md5').update(contents).digest('hex').slice(0, 10)
 						});
 					});
 				});
