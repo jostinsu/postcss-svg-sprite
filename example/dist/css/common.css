@@ -84,25 +84,25 @@ li {
     background-position: -84px -84px; 
 }
 
-.demo_common_Group { 
+.demo_common_Good { 
     width: 32px;
     height: 32px;
     background-position: -126px 0; 
 }
 
-.demo_common_History { 
+.demo_common_Group { 
     width: 32px;
     height: 32px;
     background-position: -126px -42px; 
 }
 
-.demo_common_Info { 
+.demo_common_History { 
     width: 32px;
     height: 32px;
     background-position: -126px -84px; 
 }
 
-.demo_common_Good { 
+.demo_common_Info { 
     width: 32px;
     height: 32px;
     background-position: 0 -126px; 

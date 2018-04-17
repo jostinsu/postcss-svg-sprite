@@ -116,7 +116,8 @@ function handle(atRule, options) {
 						resolve({
 							contents,
 							path: svgPath,
-							id: crypto.createHash('md5').update(contents).digest('hex').slice(0, 10)
+							name: svg,
+							id: crypto.createHash('md5').update(svg).update(contents).digest('hex').slice(0, 10)
 						});
 					});
 				});
