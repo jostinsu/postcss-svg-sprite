@@ -1,4 +1,4 @@
-let path = require('path'),
+const path = require('path'),
 	fs = require('fs'),
 	mkdirp = require('mkdirp'),
 	_ = require('lodash'),
@@ -45,7 +45,7 @@ module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
 
 		return new Promise(function (reslove, reject) {
 
-			let atRules = [];
+			const atRules = [];
 
 			root.walkAtRules(ATRULEFLAG, atRule => {
 				atRules.push(atRule);
@@ -81,10 +81,9 @@ module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
 function handle(atRule, options) {
 
 	return new Promise((resolve, reject) => {
-
-		let opt = _.clone(options),
-			param = _formatAtRuleParams(atRule.params),
-			svgs = [];
+		const param = _formatAtRuleParams(atRule.params),
+			opt = _.clone(options);
+		let svgs = [];
 
 		if (param !== '') {
 			opt.dirname = param;
@@ -111,7 +110,7 @@ function handle(atRule, options) {
 			});
 
 			return Promise.all(svgs.map(function (svg) {
-				let svgPath = path.resolve(opt.svgDir, svg);
+				const svgPath = path.resolve(opt.svgDir, svg);
 				return new Promise((resolve, reject) => {
 					fs.readFile(svgPath, (err, contents) => {
 						if (err) {
@@ -133,7 +132,7 @@ function handle(atRule, options) {
 						sprite: null
 					});
 				} else {
-					let sprite = new Sprite(svgs, {
+					const sprite = new Sprite(svgs, {
 						spritePath: opt.spritePath,
 						svgDir: opt.svgDir
 					});
@@ -151,7 +150,7 @@ function handle(atRule, options) {
 							reject(err);
 						});
 					} else {    // svg files do not change
-						let shapes = sprite.getShapesFromSprite();
+						const shapes = sprite.getShapesFromSprite();
 						resolve({
 							atRule: atRule,
 							css: getCss(shapes, opt),
@@ -175,7 +174,7 @@ function handle(atRule, options) {
  * @return {String} cssStr
  */
 function getCss(shapes, options) {
-	let spriteRelative = path.relative(options.styleOutput, options.spritePath);
+	const spriteRelative = path.relative(options.styleOutput, options.spritePath);
 	return new CSS(shapes, {
 		nameSpace: options.nameSpace,
 		block: options.dirname,
