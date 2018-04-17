@@ -21,89 +21,89 @@ li {
     list-style: none;
 }
 
-.demo_common {
+.demo_common { 
     background: url("../sprite/common.svg") left top no-repeat;
     display: inline-block;
     overflow: hidden;
     font-size: 0;
     line-height: 0;
-    vertical-align: top;
+    vertical-align: top; 
 }
 
-.demo_common_Camera {
+.demo_common_At { 
     width: 32px;
     height: 32px;
-    background-position: -42px 0;
+    background-position: -42px 0; 
 }
 
-.demo_common_Chat {
+.demo_common_Camera { 
     width: 32px;
     height: 32px;
-    background-position: 0 -84px;
+    background-position: 0 -84px; 
 }
 
-.demo_common_Check {
+.demo_common_Chat { 
     width: 32px;
     height: 32px;
-    background-position: 0 -42px;
+    background-position: 0 -42px; 
 }
 
-.demo_common_Close {
+.demo_common_Check { 
     width: 32px;
     height: 32px;
-    background-position: -42px -42px;
+    background-position: -42px -42px; 
 }
 
-.demo_common_Comment {
+.demo_common_Close { 
     width: 32px;
     height: 32px;
-    background-position: -84px 0;
+    background-position: -84px 0; 
 }
 
-.demo_common_DownArrow {
+.demo_common_Comment { 
     width: 32px;
     height: 32px;
-    background-position: -84px -42px;
+    background-position: -84px -42px; 
 }
 
-.demo_common_Download {
+.demo_common_DownArrow { 
     width: 32px;
     height: 32px;
-    background-position: 0 0;
+    background-position: 0 0; 
 }
 
-.demo_common_Filter {
+.demo_common_Download { 
     width: 32px;
     height: 32px;
-    background-position: -42px -84px;
+    background-position: -42px -84px; 
 }
 
-.demo_common_Good {
+.demo_common_Filter { 
     width: 32px;
     height: 32px;
-    background-position: -84px -84px;
+    background-position: -84px -84px; 
 }
 
-.demo_common_Group {
+.demo_common_Group { 
     width: 32px;
     height: 32px;
-    background-position: -126px 0;
+    background-position: -126px 0; 
 }
 
-.demo_common_History {
+.demo_common_History { 
     width: 32px;
     height: 32px;
-    background-position: -126px -42px;
+    background-position: -126px -42px; 
 }
 
-.demo_common_Info {
+.demo_common_Info { 
     width: 32px;
     height: 32px;
-    background-position: -126px -84px;
+    background-position: -126px -84px; 
 }
 
-.demo_common_At {
+.demo_common_Good { 
     width: 32px;
     height: 32px;
-    background-position: 0 -126px;
+    background-position: 0 -126px; 
 }

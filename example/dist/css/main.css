@@ -7,127 +7,127 @@
  *
  */
 
-.demo_icon {
+.demo_icon { 
     background: url("../sprite/icon.svg") left top no-repeat;
     display: inline-block;
     overflow: hidden;
     font-size: 0;
     line-height: 0;
-    vertical-align: top;
+    vertical-align: top; 
 }
 
-.demo_icon_LeftArrow {
+.demo_icon_LeftArrow { 
     width: 32px;
     height: 32px;
-    background-position: -42px 0;
+    background-position: -42px 0; 
 }
 
-.demo_icon_Link {
+.demo_icon_Link { 
     width: 32px;
     height: 32px;
-    background-position: -126px 0;
+    background-position: -126px 0; 
 }
 
-.demo_icon_Mail {
+.demo_icon_Mail { 
     width: 32px;
     height: 32px;
-    background-position: 0 -42px;
+    background-position: 0 -42px; 
 }
 
-.demo_icon_More {
+.demo_icon_More { 
     width: 32px;
     height: 32px;
-    background-position: -42px -42px;
+    background-position: -42px -42px; 
 }
 
-.demo_icon_Notice {
+.demo_icon_Notice { 
     width: 32px;
     height: 32px;
-    background-position: -84px 0;
+    background-position: -84px 0; 
 }
 
-.demo_icon_Pic {
+.demo_icon_Pic { 
     width: 32px;
     height: 32px;
-    background-position: -84px -42px;
+    background-position: -84px -42px; 
 }
 
-.demo_icon_Plus {
+.demo_icon_Plus { 
     width: 32px;
     height: 32px;
-    background-position: 0 -84px;
+    background-position: 0 -84px; 
 }
 
-.demo_icon_QRCode {
+.demo_icon_QRCode { 
     width: 32px;
     height: 32px;
-    background-position: -42px -84px;
+    background-position: -42px -84px; 
 }
 
-.demo_icon_Radio {
+.demo_icon_Radio { 
     width: 32px;
     height: 32px;
-    background-position: -84px -84px;
+    background-position: -84px -84px; 
 }
 
-.demo_icon_RightArrow {
+.demo_icon_RightArrow { 
     width: 32px;
     height: 32px;
-    background-position: 0 0;
+    background-position: 0 0; 
 }
 
-.demo_icon_Search {
+.demo_icon_Search { 
     width: 32px;
     height: 32px;
-    background-position: -126px -42px;
+    background-position: -126px -42px; 
 }
 
-.demo_icon_Setting {
+.demo_icon_Share { 
     width: 32px;
     height: 32px;
-    background-position: -126px -84px;
+    background-position: -126px -84px; 
 }
 
-.demo_icon_Share {
+.demo_icon_Tag { 
     width: 32px;
     height: 32px;
-    background-position: 0 -126px;
+    background-position: 0 -126px; 
 }
 
-.demo_icon_Tag {
+.demo_icon_Top { 
     width: 32px;
     height: 32px;
-    background-position: -42px -126px;
+    background-position: -42px -126px; 
 }
 
-.demo_icon_Top {
+.demo_icon_TopArrow { 
     width: 32px;
     height: 32px;
-    background-position: -84px -126px;
+    background-position: -84px -126px; 
 }
 
-.demo_icon_TopArrow {
+.demo_icon_Video { 
     width: 32px;
     height: 32px;
-    background-position: -126px -126px;
+    background-position: -126px -126px; 
 }
 
-.demo_icon_Voice {
+.demo_icon_Voice { 
     width: 32px;
     height: 32px;
-    background-position: -168px 0;
+    background-position: -168px 0; 
 }
 
-.demo_icon_Wallet {
+.demo_icon_Wallet { 
     width: 32px;
     height: 32px;
-    background-position: -168px -42px;
+    background-position: -168px -42px; 
 }
 
-.demo_icon_Video {
+.demo_icon_Setting { 
     width: 32px;
     height: 32px;
-    background-position: -168px -84px;
+    background-position: -168px -84px; 
 }
 
 .demo_stage {

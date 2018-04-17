@@ -1,7 +1,6 @@
 const path = require('path'),
 	fs = require('fs'),
 	mkdirp = require('mkdirp'),
-	_ = require('lodash'),
 	crypto = require('crypto'),
 	colors = require('ansi-colors'),
 	fancyLog = require('fancy-log'),
@@ -13,17 +12,15 @@ const path = require('path'),
 const ATRULEFLAG = 'svgsprite';
 const PLUGINNAME = 'postcss-svg-sprite';
 
+module.exports = postcss.plugin('postcss-svg-sprite', function (userConfig = {}) {
 
-module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
-
-	config = _.assign({
+	const config = Object.assign({
 		imagePath: false,
 		spriteOutput: false,
 		styleOutput: false,
 		nameSpace: 'svg_',
 		cssSeparator: '_'
-	}, config || {});
-
+	}, userConfig);
 
 	// Option `imagePath` is required
 	if (!config.imagePath) {
@@ -59,7 +56,7 @@ module.exports = postcss.plugin('postcss-svg-sprite', function (config) {
 					root.insertAfter(result.atRule, result.css);    // add css
 					result.atRule.remove();     // remove @svgsprite atRule
 					if (result.sprite) {
-						saveSprite(result.sprite.spritePath, result.sprite.contents);  // write sprite file
+						saveSprite(result.sprite);  // write sprite file
 					}
 				});
 				reslove();
@@ -82,7 +79,7 @@ function handle(atRule, options) {
 
 	return new Promise((resolve, reject) => {
 		const param = _formatAtRuleParams(atRule.params),
-			opt = _.clone(options);
+			opt = Object.assign({}, options);
 		let svgs = [];
 
 		if (param !== '') {
@@ -93,7 +90,7 @@ function handle(atRule, options) {
 		} else {
 			log('The parameter of @svgsprite can not be empty!', 'warn');
 			return resolve({
-				atRule: atRule,
+				atRule,
 				css: '',
 				sprite: null
 			});
@@ -117,8 +114,8 @@ function handle(atRule, options) {
 							reject(err);
 						}
 						resolve({
+							contents,
 							path: svgPath,
-							contents: contents,
 							id: crypto.createHash('md5').update(contents).digest('hex').slice(0, 10)
 						});
 					});
@@ -127,7 +124,7 @@ function handle(atRule, options) {
 				if (!svgs.length) { // no svg file
 					log(`There is no svg file in ${opt.svgDir}`, 'warn');
 					resolve({
-						atRule: atRule,
+						atRule,
 						css: '',
 						sprite: null
 					});
@@ -139,7 +136,7 @@ function handle(atRule, options) {
 					if (sprite.isSvgsChange()) {    // svg files change
 						sprite.getShapesFromSvgs().then((shapes) => {
 							resolve({
-								atRule: atRule,
+								atRule,
 								css: getCss(shapes, opt),
 								sprite: {
 									contents: sprite.getSprite(),
@@ -152,7 +149,7 @@ function handle(atRule, options) {
 					} else {    // svg files do not change
 						const shapes = sprite.getShapesFromSprite();
 						resolve({
-							atRule: atRule,
+							atRule,
 							css: getCss(shapes, opt),
 							sprite: null,
 						});
@@ -187,12 +184,12 @@ function getCss(shapes, options) {
  * save sprite
  *
  * @param  {String} spritePath
- * @param  {String} spriteContents
+ * @param  {String} contents
  */
-function saveSprite(spritePath, spriteContents) {
+function saveSprite({spritePath, contents}) {
 	mkdirp.sync(path.dirname(spritePath));
 	try {
-		fs.writeFileSync(spritePath, new Buffer(spriteContents));
+		fs.writeFileSync(spritePath, new Buffer(contents));
 		fancyLog(`${PLUGINNAME}: ${colors.green(`had generated ${spritePath}`)}`);
 	} catch (err) {
 		throw new PluginError(PLUGINNAME, err);
